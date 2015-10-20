@@ -10,12 +10,18 @@ function HomeController($state, ParseService) {
   // $scope.instructors = Instructor.query();
   var self = this;
 
-  self.instructors = [ 
-    { id: 1, name: 'Tom', status:'Available', bookings: [] },
-    { id: 2, name: 'Gui', status:'Available', bookings: [] },
-    { id: 3, name: 'Jen', status:'Busy', bookings: [{name: 'jack', topic: "CSS"}, {name: 'rob', topic: "Mongo"}] },
-    { id: 4, name: 'Jeremy', status:'Busy', bookings: [{name: 'chris', topic: "D3"}, {name: 'mark', topic: "General Politics"}, {name: 'paco', topic: "Database"}] }
-  ];
+  ParseService.getInstructors()
+  .then(function(response) {
+    console.log(response);
+    self.instructors = response;
+  })
+
+  // self.instructors = [ 
+  //   { id: 1, name: 'Tom', status:'Available', bookings: [] },
+  //   { id: 2, name: 'Gui', status:'Available', bookings: [] },
+  //   { id: 3, name: 'Jen', status:'Busy', bookings: [{name: 'jack', topic: "CSS"}, {name: 'rob', topic: "Mongo"}] },
+  //   { id: 4, name: 'Jeremy', status:'Busy', bookings: [{name: 'chris', topic: "D3"}, {name: 'mark', topic: "General Politics"}, {name: 'paco', topic: "Database"}] }
+  // ];
 
   // ensure access to current user
   // Parse.currentUser();
@@ -36,11 +42,12 @@ function HomeController($state, ParseService) {
     // PUT on instructor, create a booking and add it to instructor.bookings
     // assuming succesful response
     console.log(instructor.name)
+    ParseService.getBookings()
     // MUST TAKE YU TO THE BOOKING STATE/PAGE
-    $state.go('booking', {
-      id: instructor.id, 
-      instructorName: instructor.name
-    });
+    // $state.go('booking', {
+    //   id: instructor.id, 
+    //   instructorName: instructor.name
+    // });
     
     // instructor.bookings.push(self.currUser);
     // instructor.status = 'busy';

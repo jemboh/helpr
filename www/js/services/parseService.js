@@ -5,6 +5,12 @@ ParseService.$inject = ['$q'];
 
 function ParseService($q) {
 
+  var Booking = Parse.Object.extend('Booking');
+
+  // var Bookings = Parse.Collection.extend({
+  //   model: Booking
+  // });
+
   var ParseService = {
     register: function(signUpData) {
       var deferred = $q.defer();
@@ -49,6 +55,46 @@ function ParseService($q) {
 
     getCurrentUser: function() {
       return Parse.User.current();
+    },
+
+    getInstructors: function() {
+      var deferred = $q.defer();
+
+      var query = new Parse.Query(Parse.User);
+      query.equalTo('admin', true);
+      query.find({
+        success: function(instructors) {
+          var instructorData = instructors.map(function(instructor) {
+            return {
+              id: instructor.id,
+              name: instructor.get('name'),
+              status: 'available'
+            };
+          });
+
+        deferred.resolve(instructorData)
+        } 
+      });
+
+      return deferred.promise;
+    },
+
+    getBookings: function() {
+      var deferred = $q.defer();
+
+      var query = new Parse.Query(Parse.User);
+      query.equalTo('email', 'jeremy@ga.co');
+      query.find({
+        success: function(user) {
+          user[0].relation('bookings').query().find({
+            success: function(bookings) {
+              console.log(bookings[0].get('topic'));
+            }
+          })
+        }
+      });
+
+      return deferred.promise;
     },
 
     signOut: function() {
