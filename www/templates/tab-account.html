@@ -1,9 +1,16 @@
 <ion-view view-title="Account">
-  <ion-content>
+  <ion-content class="padding">
     <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
+      <label class="item item-input">
+        <input type="text" value="{{ currentUser.get('username') }}" disabled>
+      </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Enter Name...">
+      </label>
     </ion-list>
+    
+    <div ng-controller="SignOutController as signout">
+      <button type="button" ng-click="signout.signOut()" class="button button-full button-dark">Sign out</button>
+    </div>
   </ion-content>
 </ion-view>

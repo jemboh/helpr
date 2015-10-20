@@ -66,6 +66,3 @@ function HomeController($state, ParseService) {
   }
 
 } // end HomeController
-
-
-
