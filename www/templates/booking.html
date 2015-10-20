@@ -1,0 +1,17 @@
+<ion-view view-title="Booking">
+  <ion-content class="padding">
+    
+    <form ng-submit="booking.createBooking()">
+      <div class="list list-inset">
+          <label class="item item-input">
+            <input type="text" placeholder="Topic" ng-model="booking.newBooking.topic">
+          </label>
+          <label class="item item-input">
+            <textarea placeholder="Description" ng-model="booking.newBooking.description"></textarea> 
+          </label>
+      </div>
+      <button type="button" class="button button-block button-calm">Book It</button>
+    </form>
+
+  </ion-content>
+</ion-view>
