@@ -113,21 +113,55 @@ function ParseService($q) {
       return deferred.promise;
     },
 
-
-    getBookings: function() {
+    getUser: function(id) {
       var deferred = $q.defer();
 
-      // var query = new Parse.Query(Parse.User);
-      // query.equalTo('email', 'jeremy@ga.co');
-      // query.find({
-      //   success: function(user) {
-      //     user[0].relation('bookings').query().find({
-      //       success: function(bookings) {
-      //         console.log(bookings[0].get('topic'));
-      //       }
-      //     })
-      //   }
-      // });
+      var query = new Parse.Query(Parse.User);
+      query.get(id, {
+        success: function(user) {
+          deferred.resolve(user)
+        }
+      });
+
+      return deferred.promise;
+    },
+
+    createBooking: function(booking, instructorId) {
+      var deferred = $q.defer();
+
+      var newBooking = new Booking()
+      newBooking.set("topic", booking.topic);
+      newBooking.set("description", booking.description);
+
+      // grab the full student object before saving - must do because using pointers
+      ParseService.getUser(booking.student)
+      .then(function (student) {
+        newBooking.set("student",student);
+
+        newBooking.save(null, {
+          success: function(bookingCreated) {
+            console.log('New object created with objectId: ' + bookingCreated.id);
+
+            // NEED TO UPDATE INSTRUCTOR with this new booking + change status
+            ParseService.getUser(instructorId)
+              .then(function (instructor) {
+                console.log('instructor to add bookings to', instructor);
+                instructor.set('status', 'busy');
+                // I keep getting bad requests here
+                var relation = instructor.relation('bookings');
+                relation.add(bookingCreated);
+                instructor.save();
+
+                deferred.resolve({bookingCreated: bookingCreated, instructor: instructor});
+              })
+
+          },
+
+          error: function(bookingCreated, error) {
+            console.log('Failed to create new object, with error code: ' + error.message);
+          }
+        });
+      })
 
       return deferred.promise;
     },

@@ -10,8 +10,17 @@
             <textarea placeholder="Description" ng-model="booking.newBooking.description"></textarea> 
           </label>
       </div>
-      <button type="button" class="button button-block button-calm">Book It</button>
+      <input type="submit" class="button button-block button-calm">Book It</input>
     </form>
 
-  </ion-content>
+  <ion-modal-view ng-show="booking.showModal">
+    <ion-header-bar>
+      <h1 class="title">My Modal title</h1>
+    </ion-header-bar>
+    <ion-content>
+      <p>Your booking has been made successfully!</p>
+      <a ui-sref="tab.home" ng-click="booking.updateInstructorQueue()">Back to Dashboard</a>
+    </ion-content>
+  </ion-modal-view>
+
 </ion-view>

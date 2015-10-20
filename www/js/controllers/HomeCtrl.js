@@ -5,9 +5,6 @@ HomeController.$inject = ['$state', 'ParseService'];
 
 function HomeController($state, ParseService) {
 
-  console.log(ParseService)
-  // make an Instructor Resource
-  // $scope.instructors = Instructor.query();
   var self = this;
   var currId = ParseService.getCurrentUser().id;
 
@@ -15,23 +12,20 @@ function HomeController($state, ParseService) {
   .then(function(response) {
     console.log(response);
     self.instructors = response.instructors;
+    // create the current User object
     self.currUser = {
       id: currId,
       booked: response.isCurrUserBooked
     }
+    // updateStatus(self.instructors);
   })
 
-  // self.instructors = [ 
-  //   { id: 1, name: 'Tom', status:'Available', bookings: [] },
-  //   { id: 2, name: 'Gui', status:'Available', bookings: [] },
-  //   { id: 3, name: 'Jen', status:'Busy', bookings: [{name: 'jack', topic: "CSS"}, {name: 'rob', topic: "Mongo"}] },
-  //   { id: 4, name: 'Jeremy', status:'Busy', bookings: [{name: 'chris', topic: "D3"}, {name: 'mark', topic: "General Politics"}, {name: 'paco', topic: "Database"}] }
-  // ];
 
-  // ensure access to current user
-  // self.currUser = {name: 'Test Donkey', booked: ""};
-
-
+  // function updateStatus (instructors) {
+  //   instructors.forEach(function (instructor) {
+  //     console.log('innnnnstr', instructor);
+  //   })
+  // }
 
   self.toggleQueue = function (instructor) {
     // ensure the divs know when to show and hide
@@ -43,20 +37,12 @@ function HomeController($state, ParseService) {
   }
 
   self.addBooking = function (instructor) {
-    // SEND TO SERVER
-    // PUT on instructor, create a booking and add it to instructor.bookings
-    // assuming succesful response
-    console.log(instructor.name)
-    ParseService.getBookings()
-    // MUST TAKE YU TO THE BOOKING STATE/PAGE
-    // $state.go('booking', {
-    //   id: instructor.id, 
-    //   instructorName: instructor.name
-    // });
-    
-    // instructor.bookings.push(self.currUser);
-    // instructor.status = 'busy';
-    // self.currUser.booked = instructor.name;
+    console.log(instructor)
+    // MUST TAKE YOU TO THE BOOKING STATE/PAGE
+    $state.go('booking', {
+      id: instructor.id, 
+      instructorName: instructor.name
+    });
   }
 
   self.cancelBooking = function (instructor) {
