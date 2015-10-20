@@ -21,7 +21,6 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
-
 #instructors-view {
   background-color: #EBEBEB;
 }
@@ -67,4 +66,9 @@ h6 {
   font-weight: 700;
   letter-spacing: 5px;
   color: rgba(150, 150, 150, 1);
+}
+
+#register-view {
+  background-color: #065670;
+  // border: 10px solid red;
 }
