@@ -20,7 +20,7 @@
 
           <!-- Only show instrutor on click -->
           <ul ng-show="instructor.showMe">
-            <li ng-repeat="student in instructor.bookings">{{student.name}}</li>
+            <li ng-repeat="booking in instructor.bookings">{{booking.student}}</li>
           </ul>
         
         </div>
