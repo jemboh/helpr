@@ -12,6 +12,7 @@ function ParseService($q) {
   // });
 
   var ParseService = {
+
     register: function(signUpData) {
       var deferred = $q.defer();
 
@@ -60,24 +61,54 @@ function ParseService($q) {
     getInstructors: function() {
       var deferred = $q.defer();
 
+      // only get Instructors = admin true
       var query = new Parse.Query(Parse.User);
       query.equalTo('admin', true);
       query.find({
         success: function(instructors) {
-          var instructorData = instructors.map(function(instructor) {
-            return {
-              id: instructor.id,
-              name: instructor.get('name'),
-              status: 'available'
-            };
+          // PArse does not return an object but the ability to retrieve the object's attributes 1 by 1
+          // iterate through the instructors to build the instructorData object
+          var instructorDataArray = [];
+
+          instructors.forEach(function(instructor) {
+            var instructorData = {};
+            instructorData.id = instructor.id;
+            instructorData.name = instructor.get('name');
+            instructorData.status = instructor.get('status');
+            instructorData.bookings = [];
+            
+            // same iteration process to retrieve the array of bookings for that user            
+            instructor.relation('bookings').query().find({
+              success: function(bookings) {
+                bookings.forEach(function(booking){
+
+                  var bookingData = {
+                    topic: booking.get('topic'),
+                    description: booking.get('description')
+                  }
+                  // retrieve the student (!)
+                  var student = booking.get('student');
+                  var subQueryStudent = new Parse.Query(Parse.User);
+                  subQueryStudent.get(student.id, {
+                    success: function(student){
+                      bookingData.student = student.get('username')
+                      instructorData.bookings.push(bookingData);
+                    }
+                  })
+                });
+              }
+            })
+
+            instructorDataArray.push(instructorData);
           });
 
-        deferred.resolve(instructorData)
+        deferred.resolve(instructorDataArray);
         } 
       });
 
       return deferred.promise;
     },
+
 
     getBookings: function() {
       var deferred = $q.defer();
