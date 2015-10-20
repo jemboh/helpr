@@ -30,8 +30,13 @@
         <button ng-if="!home.currUser.booked" ng-click="home.addBooking(instructor)">Book It</button>
         <button ng-if="home.currUser.booked === instructor.name" ng-click="home.cancelBooking(instructor)">Take me Out</button>
       <!-- </div> -->
-
-
+          <!-- Only show instrutor on click -->
+          <ul ng-show="instructor.showMe">
+            <li ng-repeat="booking in instructor.bookings">{{booking.student}}</li>
+          </ul>
+        
+        </div>
+      </div>
     </div>
 
   </ion-content>
