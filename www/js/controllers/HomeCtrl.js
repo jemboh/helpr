@@ -9,11 +9,16 @@ function HomeController($state, ParseService) {
   // make an Instructor Resource
   // $scope.instructors = Instructor.query();
   var self = this;
+  var currId = ParseService.getCurrentUser().id;
 
-  ParseService.getInstructors()
+  ParseService.getInstructors(currId)
   .then(function(response) {
     console.log(response);
-    self.instructors = response;
+    self.instructors = response.instructors;
+    self.currUser = {
+      id: currId,
+      booked: response.isCurrUserBooked
+    }
   })
 
   // self.instructors = [ 
@@ -24,9 +29,9 @@ function HomeController($state, ParseService) {
   // ];
 
   // ensure access to current user
-  // Parse.currentUser();
-  // fake current user for now
-  self.currUser = {name: 'Test Donkey', booked: ""};
+  // self.currUser = {name: 'Test Donkey', booked: ""};
+
+
 
   self.toggleQueue = function (instructor) {
     // ensure the divs know when to show and hide

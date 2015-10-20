@@ -58,7 +58,7 @@ function ParseService($q) {
       return Parse.User.current();
     },
 
-    getInstructors: function() {
+    getInstructors: function(currId) {
       var deferred = $q.defer();
 
       // only get Instructors = admin true
@@ -69,6 +69,7 @@ function ParseService($q) {
           // PArse does not return an object but the ability to retrieve the object's attributes 1 by 1
           // iterate through the instructors to build the instructorData object
           var instructorDataArray = [];
+          var isCurrUserBooked = '';
 
           instructors.forEach(function(instructor) {
             var instructorData = {};
@@ -86,12 +87,15 @@ function ParseService($q) {
                     topic: booking.get('topic'),
                     description: booking.get('description')
                   }
-                  // retrieve the student (!)
+                  // retrieve the student (!) and check if the current user is anywhere!
                   var student = booking.get('student');
                   var subQueryStudent = new Parse.Query(Parse.User);
                   subQueryStudent.get(student.id, {
                     success: function(student){
                       bookingData.student = student.get('username')
+                      console.log('instructor', instructor.get('name'));
+                      console.log('logged', student.id, 'currID', currId);
+                      if (student.id === currId) isCurrUserBooked = instructor.name;
                       instructorData.bookings.push(bookingData);
                     }
                   })
@@ -102,7 +106,7 @@ function ParseService($q) {
             instructorDataArray.push(instructorData);
           });
 
-        deferred.resolve(instructorDataArray);
+        deferred.resolve({instructors: instructorDataArray, isCurrUserBooked: isCurrUserBooked});
         } 
       });
 
