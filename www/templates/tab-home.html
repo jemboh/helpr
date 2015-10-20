@@ -1,0 +1,16 @@
+<ion-view view-title="Home">
+
+  <ion-content class="padding">
+
+    <div class="list card" ng-repeat="instructor in instructors">
+      <div class="item item-divider">{{instructor.name}}</div>
+      <div class="item item-body">
+        <div ng-class="{{instructor.status | lowercase}}">
+          {{instructor.status}} <b ng-show="instructor.queue">Queue: {{instructor.queue}}</b>
+        </div>
+      </div>
+    </div>
+
+  </ion-content>
+
+</ion-view>
