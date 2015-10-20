@@ -51,6 +51,28 @@ function ParseService($q) {
       return Parse.User.current();
     },
 
+    updateUser: function(userData) {
+      var deferred = $q.defer();
+
+      var user = this.getCurrentUser();
+
+      user.set('firstName', userData.firstName);
+      user.set('lastName', userData.lastName);
+
+      user.save(null, {
+        success: function(user) {
+          console.log('updated user successfully', user);
+          deferred.resolve(user);
+        },
+        error: function(user, error) {
+          console.log('error updating user', user);
+          deferred.reject(error);
+        }
+      });
+
+      return deferred.promise;
+    },
+
     signOut: function() {
       return Parse.User.logOut();
     }
