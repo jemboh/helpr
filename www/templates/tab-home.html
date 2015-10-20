@@ -2,11 +2,27 @@
 
   <ion-content class="padding">
 
-    <div class="list card" ng-repeat="instructor in instructors">
-      <div class="item item-divider">{{instructor.name}}</div>
+    <h4>Click on an instructor to book your slot</h4>
+
+    <div class="list card" ng-repeat="instructor in instructors"
+    ng-click="toggleQueue(instructor)">
+
+      <div class="item item-divider">
+        {{instructor.name}}
+        <!-- can only be possible to book if you have no other bookings!! -->
+        <button ng-if="!currUser.booked" ng-click="addBooking(instructor)">Book It</button>
+        <button ng-if="currUser.booked === instructor.name" ng-click="cancelBooking(instructor)">Take me Out</button>
+      </div>
+
       <div class="item item-body">
         <div ng-class="{{instructor.status | lowercase}}">
-          {{instructor.status}} <b ng-show="instructor.queue">Queue: {{instructor.queue}}</b>
+          {{instructor.status}} <b ng-show="instructor.bookings.length > 0">Queue: {{instructor.bookings.length}}</b>
+
+          <!-- Only show instrutor on click -->
+          <ul ng-show="instructor.showMe">
+            <li ng-repeat="student in instructor.bookings">{{student.name}}</li>
+          </ul>
+        
         </div>
       </div>
     </div>
