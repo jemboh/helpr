@@ -20,7 +20,10 @@ function HomeController($state, ParseService) {
   // ensure access to current user
   // Parse.currentUser();
   // fake current user for now
-  self.currUser = {name: 'Test Donkey', booked: ""};
+  self.currUser = ParseService.getCurrentUser();
+  self.currUser.name = 'Test Donkey';
+  self.currUser.booked = '';
+  console.log(self.currUser);
 
   self.toggleQueue = function (instructor) {
     // ensure the divs know when to show and hide
@@ -35,7 +38,7 @@ function HomeController($state, ParseService) {
     // SEND TO SERVER
     // PUT on instructor, create a booking and add it to instructor.bookings
     // assuming succesful response
-    console.log(instructor.name)
+    // console.log(instructor.name)
     // MUST TAKE YU TO THE BOOKING STATE/PAGE
     $state.go('booking', {
       id: instructor.id, 
