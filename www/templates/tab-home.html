@@ -1,30 +1,37 @@
-<ion-view view-title="Instructors">
-
-  <ion-content class="padding">
+<ion-view view-title="Instructors" id="instructors-view">
+  
+  <div id="welcome-message">
     <h2>Hi there, {{ currentUser.get('username') }}</h2>
-    <h4>Click on an instructor to book your slot</h4>
+    <h6>PICK AN INSTRUCTOR BELOW</h6>
+  </div>
+
+  <ion-content class="padding" id="instructor-information">
+    <!-- <h2>Hi there, {{ currentUser.get('username') }}</h2>
+    <h4>Click on an instructor to book your slot</h4> -->
 
     <div class="list card" ng-repeat="instructor in home.instructors"
     ng-click="home.toggleQueue(instructor)">
 
-      <div class="item item-divider">
-        {{instructor.name}}
+      <!-- <div class="item item-divider"> -->
+        <div class="item item-avatar">
+          <img ng-src="{{ instructor.img }}" class="instructor-photo">
+          <h6>{{instructor.name | uppercase }} | {{instructor.status}} </h6>
+            <div ng-class="{{instructor.status | lowercase}}">
+              <b ng-show="instructor.bookings.length > 0">Queue: {{instructor.bookings.length}}</b>
+
+              <!-- Only show instrutor on click -->
+              <ul ng-show="instructor.showMe">
+                <li ng-repeat="student in instructor.bookings">{{student.name}}</li>
+              </ul>
+            
+            </div>
+        </div>
         <!-- can only be possible to book if you have no other bookings!! -->
         <button ng-if="!home.currUser.booked" ng-click="home.addBooking(instructor)">Book It</button>
         <button ng-if="home.currUser.booked === instructor.name" ng-click="home.cancelBooking(instructor)">Take me Out</button>
-      </div>
+      <!-- </div> -->
 
-      <div class="item item-body">
-        <div ng-class="{{instructor.status | lowercase}}">
-          {{instructor.status}} <b ng-show="instructor.bookings.length > 0">Queue: {{instructor.bookings.length}}</b>
 
-          <!-- Only show instrutor on click -->
-          <ul ng-show="instructor.showMe">
-            <li ng-repeat="student in instructor.bookings">{{student.name}}</li>
-          </ul>
-        
-        </div>
-      </div>
     </div>
 
   </ion-content>
