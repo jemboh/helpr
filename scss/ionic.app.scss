@@ -21,6 +21,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+body {
+  overflow-x:hidden;
+}
+
 #instructors-view {
   background-color: #EBEBEB;
 }
@@ -35,17 +39,18 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 
 #instructor-information {
-  border: 1px solid green;
+  // border: 1px solid red;
   margin-top: 12%;
 }
 
 .instructor-photo {
-  border: 4px solid green;
+  border: 7px solid white;
   border-radius: 50%;
+  width: 50%;
 }
 
 img.item-avatar {
-  border: 4px solid green;
+  border: 4px solid #85E0FF;
 }
 
 .bar-stable {
@@ -67,6 +72,11 @@ h6 {
   letter-spacing: 5px;
   color: rgba(150, 150, 150, 1);
 }
+
+p {
+  color: white;
+}
+
 
 #register-view {
   background-color: #004B8C;
@@ -112,5 +122,56 @@ input.input-styling {
 .ion-arrow-right-a {
   
   color: white; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// HORIZONTAL SCROLLING
+div.horizontal {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+article {
+    // width: 350px;
+    height: 100%;
+    // display: table-cell;
+    background: #e3e3e3;
+    vertical-align: middle;
+    text-align: center;
+    padding: 10% 0%;
+}
+
+article:nth-child(2n+2)
+{
+    background: #d1d1d1;
+}
+
+
+.book-button {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  // height: 1.5em;
 }
 
