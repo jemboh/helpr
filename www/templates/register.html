@@ -1,15 +1,17 @@
 <ion-view view-title="Register" name="register-view" id="register-view">
   <ion-content class="padding">
-    <img ng-src="http://i.imgur.com/OE6uNAE.png">
-      <div class="list list-inset">
-          <label class="item item-input">
-            <input type="email" placeholder="Email" ng-model="registration.newUser.email">
-          </label>
-          <label class="item item-input">
-            <input type="password" placeholder="Password" ng-model="registration.newUser.password">
-          </label>
+    <img id="logo" ng-src="http://i.imgur.com/OE6uNAE.png">
+      <div class="list" id="register-input-container">
+        <label class="item item-input item-floating-label register-inputs">
+        <span class="input-label">Email</span>
+          <input class="input-styling" type="email" placeholder="Email" ng-model="registration.newUser.email">
+        </label>
+        <label class="item item-input item-floating-label register-inputs">
+        <span class="input-label">Password</span>
+          <input class="input-styling" type="password" placeholder="Password" ng-model="registration.newUser.password">
+        </label>
       </div>
       <button type="button" class="button button-block button-calm" ng-click="registration.register()">Register</button>
-      <a ui-sref="login">Already a user?</a>
+      <a class="nav-to-home" ui-sref="login">Already a user?</a><i class="icon ion-arrow-right-a"></i>
   </ion-content>
 </ion-view>

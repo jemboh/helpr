@@ -9288,4 +9288,32 @@ a.button {
   transition-duration: 0s; }
 
 #register-view {
-  background-color: #065670; }
+  background-color: #004B8C; }
+
+#logo {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 2em; }
+
+.bar-stable {
+  display: none; }
+
+.register-inputs {
+  border: none;
+  padding: 0.5em 4em; }
+
+input.input-styling {
+  color: white;
+  border-bottom: 1px solid grey; }
+  input.input-styling:focus {
+    border-bottom: 1px solid white; }
+
+.input-label {
+  color: white; }
+
+.nav-to-home {
+  text-decoration: none;
+  color: white; }
+
+.ion-arrow-right-a {
+  color: white; }
