@@ -9286,3 +9286,36 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+#instructors-view {
+  background-color: #EBEBEB; }
+
+#welcome-message {
+  background-color: white;
+  text-align: center;
+  margin-bottom: 5%;
+  padding: 5% 0% 5% 0%; }
+
+#instructor-information {
+  border: 1px solid green;
+  margin-top: 12%; }
+
+.instructor-photo {
+  border: 4px solid green;
+  border-radius: 50%; }
+
+img.item-avatar {
+  border: 4px solid green; }
+
+.bar-stable {
+  display: none; }
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; }
+
+h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: #969696; }
