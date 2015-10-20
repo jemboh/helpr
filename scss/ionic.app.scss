@@ -104,13 +104,27 @@ input.input-styling {
   color: white;
 }
 
+.register-login-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
 .nav-to-home {
   text-decoration: none;
   color: white;
+  display: block;
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
-.ion-arrow-right-a {
-  
-  color: white; 
+.ion-arrow-right-a {  
+  color: white;
+  position: absolute;
+  padding-left: 0.5em;
 }
 

@@ -9344,9 +9344,22 @@ input.input-styling {
 .input-label {
   color: white; }
 
+.register-login-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+
 .nav-to-home {
   text-decoration: none;
-  color: white; }
+  color: white;
+  display: block;
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em; }
+  .nav-to-home:hover {
+    cursor: pointer; }
 
 .ion-arrow-right-a {
-  color: white; }
+  color: white;
+  position: absolute;
+  padding-left: 0.5em; }

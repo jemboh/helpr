@@ -11,7 +11,9 @@
           <input class="input-styling" type="password" placeholder="Password" ng-model="registration.newUser.password">
         </label>
       </div>
-      <button type="button" class="button button-block button-calm" ng-click="registration.register()">Register</button>
-      <a class="nav-to-home" ui-sref="login">Already a user?</a><i class="icon ion-arrow-right-a"></i>
   </ion-content>
+  <div class="register-login-wrapper padding">
+    <button type="button" class="button button-block button-calm" ng-click="registration.register()">Register</button>
+    <a class="nav-to-home" ui-sref="login">Already a user?<i class="icon ion-arrow-right-a"></i></a>
+  </div>
 </ion-view>
