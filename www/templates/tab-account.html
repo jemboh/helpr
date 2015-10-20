@@ -5,12 +5,17 @@
         <input type="text" value="{{ currentUser.get('username') }}" disabled>
       </label>
       <label class="item item-input">
-        <input type="text" placeholder="Enter Name...">
+        <input type="text" ng-model="account.userData.firstName">
       </label>
+      <label class="item item-input">
+        <input type="text" placeholder="Enter last name..." ng-model="account.userData.lastName">
+      </label>
+      <button type="button" class="button button-full button-balanced" ng-click="account.updateUserData()">
+        Save
+      </button>
     </ion-list>
-    
-    <div ng-controller="SignOutController as signout">
-      <button type="button" ng-click="signout.signOut()" class="button button-full button-dark">Sign out</button>
-    </div>
   </ion-content>
+  <div ng-controller="SignOutController as signout" style="position: absolute; bottom: 50px; width: 100%;">
+    <button type="button" ng-click="signout.signOut()" class="button button-full button-dark">Sign out</button>
+  </div>
 </ion-view>
