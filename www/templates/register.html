@@ -1,0 +1,14 @@
+<ion-view view-title="Register" name="register-view">
+  <ion-content class="padding">
+      <div class="list list-inset">
+          <label class="item item-input">
+            <input type="email" placeholder="Email" ng-model="registration.newUser.email">
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="Password" ng-model="registration.newUser.password">
+          </label>
+      </div>
+      <button type="button" class="button button-block button-calm" ng-click="registration.register()">Register</button>
+      <a ui-sref="login">Already a user?</a>
+  </ion-content>
+</ion-view>
