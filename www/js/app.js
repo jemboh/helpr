@@ -64,8 +64,17 @@ angular.module('helpr', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'tab-home': {
         templateUrl: 'templates/tab-home.html',
-        controller: 'HomeCtrl'
+        controller: 'HomeCtrl as home'
       }
+    }
+  })
+
+  .state('booking', {
+    url: '/booking/instructor/:id',
+    templateUrl: 'templates/booking.html',
+    controller: 'BookingCtrl as booking',
+    params: { 
+      instructorName: null
     }
   })
 

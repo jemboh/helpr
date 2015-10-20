@@ -4,14 +4,14 @@
     <h2>Hi there, {{ currentUser.get('username') }}</h2>
     <h4>Click on an instructor to book your slot</h4>
 
-    <div class="list card" ng-repeat="instructor in instructors"
-    ng-click="toggleQueue(instructor)">
+    <div class="list card" ng-repeat="instructor in home.instructors"
+    ng-click="home.toggleQueue(instructor)">
 
       <div class="item item-divider">
         {{instructor.name}}
         <!-- can only be possible to book if you have no other bookings!! -->
-        <button ng-if="!currUser.booked" ng-click="addBooking(instructor)">Book It</button>
-        <button ng-if="currUser.booked === instructor.name" ng-click="cancelBooking(instructor)">Take me Out</button>
+        <button ng-if="!home.currUser.booked" ng-click="home.addBooking(instructor)">Book It</button>
+        <button ng-if="home.currUser.booked === instructor.name" ng-click="home.cancelBooking(instructor)">Take me Out</button>
       </div>
 
       <div class="item item-body">
