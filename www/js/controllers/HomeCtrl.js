@@ -11,10 +11,10 @@ function HomeController($state, ParseService) {
   var self = this;
 
   self.instructors = [ 
-    { id: 1, name: 'Tom', status:'Available', bookings: [] },
-    { id: 2, name: 'Gui', status:'Available', bookings: [] },
-    { id: 3, name: 'Jen', status:'Busy', bookings: [{name: 'jack', topic: "CSS"}, {name: 'rob', topic: "Mongo"}] },
-    { id: 4, name: 'Jeremy', status:'Busy', bookings: [{name: 'chris', topic: "D3"}, {name: 'mark', topic: "General Politics"}, {name: 'paco', topic: "Database"}] }
+    { id: 1, name: 'Tom', status:'Available', bookings: [], img: 'http://i.imgur.com/KzpKDzo.jpg' },
+    { id: 2, name: 'Gui', status:'Available', bookings: [], img: 'http://i.imgur.com/rDlcbJQ.jpg'  },
+    { id: 3, name: 'Jen', status:'Busy', bookings: [{name: 'jack', topic: "CSS"}, {name: 'rob', topic: "Mongo"}], img: 'http://i.imgur.com/nUmxjUT.jpg' },
+    { id: 4, name: 'Jeremy', status:'Busy', bookings: [{name: 'chris', topic: "D3"}, {name: 'mark', topic: "General Politics"}, {name: 'paco', topic: "Database"}], img: 'http://i.imgur.com/Di9kHxX.jpg' }
   ];
 
   // ensure access to current user
