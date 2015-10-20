@@ -113,17 +113,17 @@ function ParseService($q) {
     getBookings: function() {
       var deferred = $q.defer();
 
-      var query = new Parse.Query(Parse.User);
-      query.equalTo('email', 'jeremy@ga.co');
-      query.find({
-        success: function(user) {
-          user[0].relation('bookings').query().find({
-            success: function(bookings) {
-              console.log(bookings[0].get('topic'));
-            }
-          })
-        }
-      });
+      // var query = new Parse.Query(Parse.User);
+      // query.equalTo('email', 'jeremy@ga.co');
+      // query.find({
+      //   success: function(user) {
+      //     user[0].relation('bookings').query().find({
+      //       success: function(bookings) {
+      //         console.log(bookings[0].get('topic'));
+      //       }
+      //     })
+      //   }
+      // });
 
       return deferred.promise;
     },
