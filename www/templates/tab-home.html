@@ -1,7 +1,7 @@
 <ion-view view-title="Home">
 
   <ion-content class="padding">
-
+    <h2>Hi there, {{ currentUser.get('username') }}</h2>
     <h4>Click on an instructor to book your slot</h4>
 
     <div class="list card" ng-repeat="instructor in instructors"

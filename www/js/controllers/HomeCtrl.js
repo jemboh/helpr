@@ -1,8 +1,10 @@
 angular.module('starter.controllers')
 
-.controller('HomeCtrl', function($scope) {
+.controller('HomeCtrl', function($scope, ParseService) {
 
   // make an Instructor Resource
+
+  this.currentUser = ParseService.getCurrentUser();
 
   $scope.instructors = [ 
     { name: 'Tom', status:'Available', bookings: [] },

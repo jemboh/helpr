@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('helpr', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, $rootScope, ParseService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -23,6 +23,11 @@ angular.module('helpr', ['ionic', 'starter.controllers', 'starter.services'])
   });
 
   Parse.initialize("X0xjoBRz0xjZhKUn50Hf1h5y6UlnWY9PrM6xc0jj", "hqki3UaqeQ1VBMfapchiZpW2cSXlNTW0bZsOk3H3");
+
+  $rootScope.currentUser = false;
+  $rootScope.loggedIn = false;
+
+  $rootScope.currentUser = ParseService.getCurrentUser();
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
@@ -41,7 +46,8 @@ angular.module('helpr', ['ionic', 'starter.controllers', 'starter.services'])
 
   .state('login', {
     url: '/login',
-    templateUrl: 'templates/login.html'
+    templateUrl: 'templates/login.html',
+    controller: 'LoginController as login'
   })
 
   // setup an abstract state for the tabs directive
