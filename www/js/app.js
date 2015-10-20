@@ -21,6 +21,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       StatusBar.styleLightContent();
     }
   });
+
+  Parse.initialize("X0xjoBRz0xjZhKUn50Hf1h5y6UlnWY9PrM6xc0jj", "hqki3UaqeQ1VBMfapchiZpW2cSXlNTW0bZsOk3H3");
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
