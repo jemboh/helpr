@@ -12,7 +12,7 @@ function RegistrationController($state, ParseService) {
     ParseService.register(self.newUser)
     .then(function(response) {
       console.log(response);
-      $state.go('tab.dash')
+      $state.go('tab.home')
     })
   }
 }
