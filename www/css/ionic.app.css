@@ -9341,7 +9341,7 @@ input.input-styling {
   input.input-styling:focus {
     border-bottom: 1px solid white; }
 
-.input-label {
+.register-input-container .input-label {
   color: white; }
 
 .register-login-wrapper {
