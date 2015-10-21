@@ -9318,19 +9318,25 @@ h2 {
   font-family: 'Roboto', sans-serif;
   font-weight: 300; }
 
+h4 {
+  color: #aaaaaa;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 11px; }
+
 h5 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   letter-spacing: 5px;
   color: white;
-  font-size: 10px; }
+  font-size: 11px; }
 
 h6 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   letter-spacing: 5px;
   color: #aaaaaa;
-  font-size: 10px; }
+  font-size: 11px; }
 
 p {
   color: white;
@@ -9341,6 +9347,9 @@ li {
   color: #aaaaaa;
   font-family: 'Roboto', sans-serif;
   font-weight: 400; }
+
+.dashboard-button {
+  color: #2FEDED; }
 
 #register-view {
   background-color: #3B3B3B; }
@@ -9363,7 +9372,7 @@ input.input-styling {
   input.input-styling:focus {
     border-bottom: 1px solid white; }
 
-.input-label {
+.register-input-container .input-label {
   color: white; }
 
 .register-login-wrapper {
@@ -9415,3 +9424,37 @@ article:nth-child(2n+2) {
 
 .button-calm {
   background-color: #4AE7FF; }
+
+article img {
+  animation: spin 2s infinite linear; }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg); }
+  to {
+    transform: rotate(360deg); } }
+
+.login-view {
+  background-color: #3B3B3B;
+  color: white; }
+  .login-view .list-inset {
+    border: none;
+    border-radius: 0; }
+  .login-view .list {
+    padding-bottom: 0;
+    padding-top: 0; }
+
+.login-input {
+  border: none;
+  background-color: #3B3B3B;
+  color: white;
+  padding: 1em;
+  border-radius: 0; }
+  .login-input input {
+    color: white;
+    border-bottom: 1px solid grey; }
+    .login-input input:focus {
+      border-bottom: 1px solid white; }
+
+.input-label {
+  color: white; }

@@ -13,7 +13,7 @@
         <article ng-repeat="instructor in home.instructors" ng-click="home.toggleQueue(instructor)">
           <img ng-src="{{ instructor.img }}" class="instructor-photo">
           <h6>{{ instructor.name | uppercase }} | {{instructor.status }}</h6>
-          <button class="book-button" ng-if="!home.currUser.booked" ng-click="home.addBooking(instructor)">BOOK</button>
+          <button class="book-button" ng-show="!home.currUser.booked" ng-click="home.addBooking(instructor)">BOOK</button>
           <button ng-if="home.currUser.booked === instructor.name" ng-click="home.cancelBooking(instructor)">Take me Out</button>
           <p ng-show="instructor.bookings.length > 0">queue: {{instructor.bookings.length}}</p>
           <ul ng-show="instructor.showMe">
