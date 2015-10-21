@@ -21,6 +21,10 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+body {
+  overflow-x:hidden;
+}
+
 #instructors-view {
   background-color: #EBEBEB;
 }
@@ -35,17 +39,19 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 
 #instructor-information {
-  border: 1px solid green;
+  // border: 1px solid red;
   margin-top: 12%;
 }
 
 .instructor-photo {
-  border: 4px solid green;
+  border: 7px solid white;
   border-radius: 50%;
+  width: 50%;
+  background-size: cover;
 }
 
 img.item-avatar {
-  border: 4px solid green;
+  border: 4px solid #85E0FF;
 }
 
 .bar-stable {
@@ -61,15 +67,40 @@ h2 {
   font-weight: 300;
 }
 
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: white;
+  font-size: 10px;
+}
+
 h6 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   letter-spacing: 5px;
-  color: rgba(150, 150, 150, 1);
+  color: rgba(170, 170, 170, 1);
+  font-size: 10px;
 }
 
+p {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+li {
+  color: rgba(170, 170, 170, 1);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+
+
+
 #register-view {
-  background-color: #004B8C;
+  // background-color: #004B8C;
+  background-color: #3B3B3B;
   // background-color: #065670;
 }
 
@@ -128,6 +159,46 @@ input.input-styling {
   padding-left: 0.5em;
 }
 
-// .notification-modal {
-//   padding
-// }
+// HORIZONTAL SCROLLING
+div.horizontal {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+article {
+    // width: 350px;
+    height: 100%;
+    // display: table-cell;
+    background: #e3e3e3;
+    vertical-align: middle;
+    text-align: center;
+    padding: 10% 0%;
+}
+
+article:nth-child(2n+2)
+{
+    background: #d1d1d1;
+}
+
+
+.book-button {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  // height: 1.5em;
+}
+
+.button-calm {
+  background-color: #4AE7FF;
+}
+
+

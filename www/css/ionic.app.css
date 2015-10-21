@@ -9287,6 +9287,9 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+body {
+  overflow-x: hidden; }
+
 #instructors-view {
   background-color: #EBEBEB; }
 
@@ -9297,15 +9300,16 @@ a.button {
   padding: 5% 0% 5% 0%; }
 
 #instructor-information {
-  border: 1px solid green;
   margin-top: 12%; }
 
 .instructor-photo {
-  border: 4px solid green;
-  border-radius: 50%; }
+  border: 7px solid white;
+  border-radius: 50%;
+  width: 50%;
+  background-size: cover; }
 
 img.item-avatar {
-  border: 4px solid green; }
+  border: 4px solid #85E0FF; }
 
 .bar-stable {
   display: none; }
@@ -9314,14 +9318,32 @@ h2 {
   font-family: 'Roboto', sans-serif;
   font-weight: 300; }
 
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: white;
+  font-size: 10px; }
+
 h6 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   letter-spacing: 5px;
-  color: #969696; }
+  color: #aaaaaa;
+  font-size: 10px; }
+
+p {
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; }
+
+li {
+  color: #aaaaaa;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; }
 
 #register-view {
-  background-color: #004B8C; }
+  background-color: #3B3B3B; }
 
 #logo {
   display: block;
@@ -9363,3 +9385,33 @@ input.input-styling {
   color: white;
   position: absolute;
   padding-left: 0.5em; }
+
+div.horizontal {
+  width: 100%;
+  height: 100%;
+  overflow: auto; }
+
+.table {
+  display: table;
+  table-layout: fixed;
+  width: 100%; }
+
+article {
+  height: 100%;
+  background: #e3e3e3;
+  vertical-align: middle;
+  text-align: center;
+  padding: 10% 0%; }
+
+article:nth-child(2n+2) {
+  background: #d1d1d1; }
+
+.book-button {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white; }
+
+.button-calm {
+  background-color: #4AE7FF; }
