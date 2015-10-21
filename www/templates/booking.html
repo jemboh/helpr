@@ -3,16 +3,17 @@
     
     <form ng-submit="booking.createBooking()">
       <div class="list list-inset">
-          <label class="item item-input">
-            <input type="text" placeholder="Topic" ng-model="booking.newBooking.topic">
-          </label>
-          <label class="item item-input">
-            <textarea placeholder="Description" ng-model="booking.newBooking.description"></textarea> 
-          </label>
+        <label class="item item-input item-floating-label booking-input">
+          <span class="input-label">Topic</span>
+          <input type="text" placeholder="Topic e.g. CSS" ng-model="booking.newBooking.topic">
+        </label>
+        <label class="item item-input item-floating-label booking-input">
+          <span class="input-label">Question</span>
+          <textarea rows="10" placeholder="Please enter a brief description of your issue/question" ng-model="booking.newBooking.description"></textarea> 
+        </label>
       </div>
-      <input type="submit" class="button button-block button-calm">Book It</input>
+      <button type="submit" class="button button-block button-calm">Book It</button>
     </form>
-
   <ion-modal-view ng-show="booking.showModal">
     <ion-header-bar>
       <h1 class="title"><h6>THANKS!</h6></h1>

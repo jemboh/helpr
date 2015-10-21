@@ -142,7 +142,7 @@ input.input-styling {
   }
 }
 
-.input-label {
+.register-input-container .input-label {
   color: white;
 }
 
@@ -169,19 +169,6 @@ input.input-styling {
   position: absolute;
   padding-left: 0.5em;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // HORIZONTAL SCROLLING
 div.horizontal {
@@ -225,3 +212,43 @@ article:nth-child(2n+2)
   background-color: #4AE7FF;
 }
 
+article img {
+  animation: spin 2s infinite linear;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.login-view {
+  background-color: #3B3B3B;
+  color: white;
+  .list-inset {
+    border: none;
+    border-radius: 0;
+  }
+  .list {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}
+
+.login-input {
+  border: none;
+  background-color: #3B3B3B;
+  color: white;
+  padding: 1em;
+  border-radius: 0;
+  input {
+    color: white;
+    border-bottom: 1px solid grey;
+    &:focus {
+      border-bottom: 1px solid white;
+    }
+  }
+}
+
+.input-label {
+  color: white;
+}

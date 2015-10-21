@@ -1,10 +1,12 @@
-<ion-view view-title="Login" name="login-view">
+<ion-view view-title="Login" name="login-view" class="login-view">
   <ion-content class="padding">
       <div class="list list-inset">
-          <label class="item item-input">
+          <label class="item item-input item-floating-label login-input">
+            <span class="input-label">Email</span>
             <input type="email" placeholder="Email" ng-model="login.userData.email">
           </label>
-          <label class="item item-input">
+          <label class="item item-input item-floating-label login-input">
+            <span class="input-label">Password</span>
             <input type="password" placeholder="Password" ng-model="login.userData.password">
           </label>
       </div>
