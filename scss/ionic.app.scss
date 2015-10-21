@@ -201,4 +201,11 @@ article:nth-child(2n+2)
   background-color: #4AE7FF;
 }
 
+article img {
+  animation: spin 2s infinite linear;
+}
 
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
