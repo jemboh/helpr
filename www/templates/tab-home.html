@@ -5,31 +5,52 @@
     <h6>PICK AN INSTRUCTOR BELOW</h6>
   </div>
 
-  <ion-content class="padding" id="instructor-information">
+  <ion-content id="instructor-information">
+
+  <section>
+    <div class="horizontal">
+      <div class="table">
+        <article ng-repeat="instructor in home.instructors" ng-click="home.toggleQueue(instructor)">
+          <img ng-src="{{ instructor.img }}" class="instructor-photo">
+          <h6>{{ instructor.name | uppercase }} | {{instructor.status }}</h6>
+          <button class="book-button" ng-if="!home.currUser.booked" ng-click="home.addBooking(instructor)">BOOK</button>
+          <button ng-if="home.currUser.booked === instructor.name" ng-click="home.cancelBooking(instructor)">Take me Out</button>
+          <p ng-show="instructor.bookings.length > 0">queue: {{instructor.bookings.length}}</p>
+          <ul ng-show="instructor.showMe">
+            <li ng-repeat="student in instructor.bookings">{{student.name}}</li>
+          </ul>
+        </article>
+      </div>
+    </div>  
+  </section>
+
+
+
     <!-- <h2>Hi there, {{ currentUser.get('username') }}</h2>
     <h4>Click on an instructor to book your slot</h4> -->
 
-    <div class="list card" ng-repeat="instructor in home.instructors"
-    ng-click="home.toggleQueue(instructor)">
+    <!-- <div class="list card" ng-repeat="instructor in home.instructors" -->
+    <!-- ng-click="home.toggleQueue(instructor)"> -->
 
       <!-- <div class="item item-divider"> -->
-        <div class="item item-avatar">
-          <img ng-src="{{ instructor.img }}" class="instructor-photo">
-          <h6>{{instructor.name | uppercase }} | {{instructor.status}} </h6>
-            <div ng-class="{{instructor.status | lowercase}}">
-              <b ng-show="instructor.bookings.length > 0">Queue: {{instructor.bookings.length}}</b>
+        <!-- <div class="item item-avatar"> -->
+          <!-- <img ng-src="{{ instructor.img }}" class="instructor-photo"> -->
+          <!-- <h6>{{instructor.name | uppercase }} | {{instructor.status}} </h6> -->
+            <!-- <div ng-class="{{instructor.status | lowercase}}"> -->
+              <!-- <b ng-show="instructor.bookings.length > 0">Queue: {{instructor.bookings.length}}</b> -->
 
               <!-- Only show instrutor on click -->
-              <ul ng-show="instructor.showMe">
+<!--               <ul ng-show="instructor.showMe">
                 <li ng-repeat="student in instructor.bookings">{{student.name}}</li>
-              </ul>
+              </ul> -->
             
-            </div>
-        </div>
+            <!-- </div> -->
+        <!-- </div> -->
         <!-- can only be possible to book if you have no other bookings!! -->
-        <button ng-if="!home.currUser.booked" ng-click="home.addBooking(instructor)">Book It</button>
-        <button ng-if="home.currUser.booked === instructor.name" ng-click="home.cancelBooking(instructor)">Take me Out</button>
+        <!-- <button ng-if="!home.currUser.booked" ng-click="home.addBooking(instructor)">Book It</button> -->
+        <!-- <button ng-if="home.currUser.booked === instructor.name" ng-click="home.cancelBooking(instructor)">Take me Out</button> -->
       <!-- </div> -->
+<<<<<<< HEAD
           <!-- Only show instrutor on click -->
           <ul ng-show="instructor.showMe">
             <li ng-repeat="booking in instructor.bookings">{{booking.student}}</li>
@@ -38,6 +59,11 @@
         </div>
       </div>
     </div>
+=======
+
+
+    <!-- </div> -->
+>>>>>>> swipe-instructors
 
   </ion-content>
 
