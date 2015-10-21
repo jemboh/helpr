@@ -47,6 +47,7 @@ body {
   border: 7px solid white;
   border-radius: 50%;
   width: 50%;
+  background-size: cover;
 }
 
 img.item-avatar {
@@ -66,20 +67,40 @@ h2 {
   font-weight: 300;
 }
 
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: white;
+  font-size: 10px;
+}
+
 h6 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   letter-spacing: 5px;
-  color: rgba(150, 150, 150, 1);
+  color: rgba(170, 170, 170, 1);
+  font-size: 10px;
 }
 
 p {
   color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+li {
+  color: rgba(170, 170, 170, 1);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
 }
 
 
+
+
 #register-view {
-  background-color: #004B8C;
+  // background-color: #004B8C;
+  background-color: #3B3B3B;
   // background-color: #065670;
 }
 
@@ -173,5 +194,9 @@ article:nth-child(2n+2)
   background-color: transparent;
   color: white;
   // height: 1.5em;
+}
+
+.button-calm {
+  background-color: #4AE7FF;
 }
 

@@ -12,9 +12,9 @@ function HomeController($state, ParseService) {
 
   self.instructors = [ 
     { id: 1, name: 'Tom', status:'Available', bookings: [], img: 'http://i.imgur.com/pzBLQZx.jpg' },
-    { id: 2, name: 'Gui', status:'Available', bookings: [], img: 'http://i.imgur.com/rDlcbJQ.jpg'  },
-    { id: 3, name: 'Jen', status:'Busy', bookings: [{name: 'jack', topic: "CSS"}, {name: 'rob', topic: "Mongo"}], img: 'http://i.imgur.com/nUmxjUT.jpg' },
-    { id: 4, name: 'Jeremy', status:'Busy', bookings: [{name: 'chris', topic: "D3"}, {name: 'mark', topic: "General Politics"}, {name: 'paco', topic: "Database"}], img: 'http://i.imgur.com/0GF4arQ.jpg' }
+    { id: 2, name: 'Gui', status:'Available', bookings: [{name: 'Niall', topic: "CSS"}, {name: 'Ambar', topic: "Mongo"}], img: 'http://i.imgur.com/rDlcbJQ.jpg'  },
+    { id: 3, name: 'Jen', status:'Busy', bookings: [{name: 'Jack', topic: "CSS"}, {name: 'Rob', topic: "Mongo"}], img: 'http://i.imgur.com/nUmxjUT.jpg' },
+    { id: 4, name: 'Jeremy', status:'Busy', bookings: [{name: 'Chris', topic: "D3"}, {name: 'Mark', topic: "General Politics"}, {name: 'Paco', topic: "Database"}], img: 'http://i.imgur.com/0GF4arQ.jpg' }
   ];
 
   // ensure access to current user

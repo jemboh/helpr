@@ -9305,7 +9305,8 @@ body {
 .instructor-photo {
   border: 7px solid white;
   border-radius: 50%;
-  width: 50%; }
+  width: 50%;
+  background-size: cover; }
 
 img.item-avatar {
   border: 4px solid #85E0FF; }
@@ -9317,17 +9318,32 @@ h2 {
   font-family: 'Roboto', sans-serif;
   font-weight: 300; }
 
+h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: white;
+  font-size: 10px; }
+
 h6 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   letter-spacing: 5px;
-  color: #969696; }
+  color: #aaaaaa;
+  font-size: 10px; }
 
 p {
-  color: white; }
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; }
+
+li {
+  color: #aaaaaa;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400; }
 
 #register-view {
-  background-color: #004B8C; }
+  background-color: #3B3B3B; }
 
 #logo {
   display: block;
@@ -9372,7 +9388,7 @@ article {
   background: #e3e3e3;
   vertical-align: middle;
   text-align: center;
-  padding: 9% 0%; }
+  padding: 10% 0%; }
 
 article:nth-child(2n+2) {
   background: #d1d1d1; }
@@ -9383,3 +9399,6 @@ article:nth-child(2n+2) {
   border: 2px solid white;
   background-color: transparent;
   color: white; }
+
+.button-calm {
+  background-color: #4AE7FF; }
