@@ -46,13 +46,17 @@ Parse.Cloud.define("bookUser", function(request, response) {
 
     var instructorQuery = new Parse.Query(Parse.User);
     instructorQuery.equalTo('objectId', request.params.instructorId);
-    var instructorName = instructorQuery.get('name');
 
     studentQuery.first({
       success: function(student) {
-        student.set('booked', instructorName);
-        student.save();
-        response.success('user is booked with ' + instructorName);
+        instructorQuery.first({
+          success: function (instructor) {
+            var instructorName = instructor.get('name');
+            student.set('booked', instructorName);
+            student.save();
+            response.success('user is booked with ' + instructorName);
+          }
+        })
       },
       error: function(user, error) {
         response.error("Could not save changes to user.");
