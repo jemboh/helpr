@@ -98,6 +98,7 @@ function ParseService($q) {
             instructorData.id = instructor.id;
             instructorData.name = instructor.get('name');
             instructorData.status = instructor.get('status');
+            instructorData.img = instructor.get('img');
             instructorData.bookings = [];
             
             // same iteration process to retrieve the array of bookings for that user            
@@ -114,7 +115,7 @@ function ParseService($q) {
                   var subQueryStudent = new Parse.Query(Parse.User);
                   subQueryStudent.get(student.id, {
                     success: function(student){
-                      bookingData.student = student.get('username')
+                      bookingData.student = student.get('firstName')
                       console.log('instructor', instructor.get('name'));
                       console.log('logged', student.id, 'currID', currId);
                       if (student.id === currId) isCurrUserBooked = instructor.name;
@@ -172,11 +173,11 @@ function ParseService($q) {
               success: function(response) {
                 // the user was updated successfully
                 console.log('cloud success!');
-                console.log(response);
+                deferred.resolve(response);
               },
               error: function(error) {
                 console.log('cloud fail');
-                console.log(error);
+                deferred.reject(error);
               }
             });
           })
