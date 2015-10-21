@@ -9424,3 +9424,28 @@ article img {
     transform: rotate(0deg); }
   to {
     transform: rotate(360deg); } }
+
+.login-view {
+  background-color: #3B3B3B;
+  color: white; }
+  .login-view .list-inset {
+    border: none;
+    border-radius: 0; }
+  .login-view .list {
+    padding-bottom: 0;
+    padding-top: 0; }
+
+.login-input {
+  border: none;
+  background-color: #3B3B3B;
+  color: white;
+  padding: 1em;
+  border-radius: 0; }
+  .login-input input {
+    color: white;
+    border-bottom: 1px solid grey; }
+    .login-input input:focus {
+      border-bottom: 1px solid white; }
+
+.input-label {
+  color: white; }
