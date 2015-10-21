@@ -8,23 +8,28 @@ function HomeController($state, ParseService) {
   var self = this;
   var currId = ParseService.getCurrentUser().id;
 
+  // get the current USER !!
+  var currQuery = new Parse.Query(Parse.User);
+  currQuery.equalTo('objectId', currId);
+  currQuery.first({
+    success: function(user) {
+      self.currUser = {
+        id: currId,
+        booked: user.get('booked')
+      }
+      console.log('SELF OK?????', self.currUser);
+    }
+  })
+
+
+// Get the instructors !!
   ParseService.getInstructors(currId)
   .then(function(response) {
     console.log(response);
     self.instructors = response.instructors;
-    // create the current User object
-    self.currUser = {
-      id: currId,
-      booked: response.isCurrUserBooked
-    }
-    // updateStatus(self.instructors);
   })
 
-  // function updateStatus (instructors) {
-  //   instructors.forEach(function (instructor) {
-  //     console.log('innnnnstr', instructor);
-  //   })
-  // }
+
 
   self.toggleQueue = function (instructor) {
     // ensure the divs know when to show and hide

@@ -33,3 +33,29 @@ Parse.Cloud.define("modifyUser", function(request, response) {
       }
     });
   });
+
+
+Parse.Cloud.define("bookUser", function(request, response) {
+
+    Parse.Cloud.useMasterKey();
+
+    console.log('request useBook', request);
+
+    var studentQuery = new Parse.Query(Parse.User);
+    studentQuery.equalTo('objectId', request.params.userId);
+
+    var instructorQuery = new Parse.Query(Parse.User);
+    instructorQuery.equalTo('objectId', request.params.instructorId);
+    var instructorName = instructorQuery.get('name');
+
+    studentQuery.first({
+      success: function(student) {
+        student.set('booked', instructorName);
+        student.save();
+        response.success('user is booked with ' + instructorName);
+      },
+      error: function(user, error) {
+        response.error("Could not save changes to user.");
+      }
+    });
+  });

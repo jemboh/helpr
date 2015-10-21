@@ -93,6 +93,10 @@ function ParseService($q) {
           var instructorDataArray = [];
           var isCurrUserBooked = '';
 
+          var lengthCheck = instructors.length;
+
+          var deferredInstructors = $q.defer();
+
           instructors.forEach(function(instructor) {
             var instructorData = {};
             instructorData.id = instructor.id;
@@ -116,9 +120,7 @@ function ParseService($q) {
                   subQueryStudent.get(student.id, {
                     success: function(student){
                       bookingData.student = student.get('firstName')
-                      console.log('instructor', instructor.get('name'));
-                      console.log('logged', student.id, 'currID', currId);
-                      if (student.id === currId) isCurrUserBooked = instructor.name;
+                      // if (student.id === currId) isCurrUserBooked = instructor.name;
                       instructorData.bookings.push(bookingData);
                     }
                   })
@@ -167,19 +169,31 @@ function ParseService($q) {
           console.log(booking);
           self.getUser(instructorId)
           .then(function(instructor) {
-            // below Cloud function is defined in cloud/main.js
-            // Parse requires special rights to modify a user
+
+            // below Cloud functions are defined in cloud/main.js - Parse requires special rights to modify a user
             Parse.Cloud.run('modifyUser', { userId: instructorId, bookingId: booking.id }, {
               success: function(response) {
-                // the user was updated successfully
-                console.log('cloud success!');
-                deferred.resolve(response);
+                console.log('cloud success for modify instructor wih booking!');
+
+                // Update current user to show is booked with the instructor
+                Parse.Cloud.run('bookUser', { userId: user.id, instructorId: instructorId }, {
+                  success: function(response) {
+                    console.log('cloud book user success!');
+                    deferred.resolve(response);
+                  },
+                  error: function(error) {
+                    console.log('cloud  book user fail');
+                    deferred.reject(error);
+                  }
+                });
+                // deferred.resolve(response);
               },
               error: function(error) {
-                console.log('cloud fail');
+                console.log('cloud fail to modify instructor with booking');
                 deferred.reject(error);
               }
             });
+
           })
         },
         error: function(booking, error) {
