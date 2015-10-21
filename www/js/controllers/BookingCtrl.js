@@ -14,10 +14,15 @@ function BookingCtrl($state, $stateParams, ParseService) {
 
   self.createBooking = function() {
     var newBooking = self.newBooking;
-    // send to Parse
-    // when booking successfully made pop up modal
-    self.showModal = true;
-    self.newBooking = {};
+    newBooking.student = ParseService.getCurrentUser().id;
+    // send to Parse & // update instructor status to busy (Can only be busy now!)
+    ParseService.createBooking(newBooking, $stateParams.id)
+    .then(function (response) {
+      console.log('response from newBooking', response);
+      // when booking successfully made pop up modal
+      self.showModal = true;
+      self.newBooking = {};
+    })
   }
 
   self.updateInstructorQueue = function() {

@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "_default": {
+      "link": "helpr"
+    },
+    "helpr": {
+      "applicationId": "X0xjoBRz0xjZhKUn50Hf1h5y6UlnWY9PrM6xc0jj"
+    }
+  }
+}
