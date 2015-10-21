@@ -3,22 +3,24 @@
     
     <form ng-submit="booking.createBooking()">
       <div class="list list-inset">
-          <label class="item item-input item-floating-label booking-input">
-            <span class="input-label">Topic</span>
-            <input type="text" placeholder="Topic e.g. CSS" ng-model="booking.newBooking.topic">
-          </label>
-          <label class="item item-input item-floating-label booking-input">
-            <span class="input-label">Question</span>
-            <textarea rows="10" placeholder="Please enter a brief description of your issue/question" ng-model="booking.newBooking.description"></textarea> 
-          </label>
+        <label class="item item-input item-floating-label booking-input">
+          <span class="input-label">Topic</span>
+          <input type="text" placeholder="Topic e.g. CSS" ng-model="booking.newBooking.topic">
+        </label>
+        <label class="item item-input item-floating-label booking-input">
+          <span class="input-label">Question</span>
+          <textarea rows="10" placeholder="Please enter a brief description of your issue/question" ng-model="booking.newBooking.description"></textarea> 
+        </label>
       </div>
       <button type="submit" class="button button-block button-calm">Book It</button>
     </form>
-
-  <ion-modal-view ng-show="booking.showModal" class="notification-modal">
+  <ion-modal-view ng-show="booking.showModal">
+    <ion-header-bar>
+      <h1 class="title"><h6>THANKS!</h6></h1>
+    </ion-header-bar>
     <ion-content>
-      <p>Great, you've successfully submitted your question to your chosen instructor. You'll get a push notification when they're ready to see you.</p>
-      <a ui-sref="tab.home" ng-click="booking.updateInstructorQueue()">Back to Dashboard</a>
+      <h4>Your booking has been made successfully!</h4>
+      <a ui-sref="tab.home" ng-click="booking.updateInstructorQueue()" class="dashboard-button">Back to Dashboard</a>
     </ion-content>
   </ion-modal-view>
 
