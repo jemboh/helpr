@@ -1,6 +1,6 @@
 {
   "name": "helpr",
-  "app_id": "",
+  "app_id": "2b917f11",
   "gulpStartupTasks": [
     "sass",
     "watch"
